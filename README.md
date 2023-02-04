@@ -40,8 +40,10 @@ Configuration 탭에서 Slow query 가 활성화 되었는지 확인합니다.
 3. Slow query 확인
 ![alt text](img/iShot_2023-02-04_20.46.31.png)
 
+## 2. 파라메터 그룹 확인
 파라메터 그룹을 통해 Slow Query 상세 설정을 합니다.
 1. DB Cluster parameter group을 확인합니다. 캡처 처럼 default.% (default.aurora-mysql5.7) 로 되어 있을 경우 별도의 파라페터 그룹을 생성하여 교체해주어야 합니다.
+별도의 파라메터 그룹으로 이미 매핑이 되어 있다면 `3. 파라메터 그룹 상세 설정` 으로 이동합니다.
 ![alt text](img/iShot_2023-02-04_20.50.11.png)
 
 default.% 사용하고 있으므로 새로운 parameter group을 생성합니다.
@@ -79,7 +81,7 @@ Aurora의 parameter group을 방금 생성한 group으로 변경합니다.
 ![alt text](img/iShot_2023-02-04_21.15.12.png)
 ![alt text](img/iShot_2023-02-04_21.19.21.png)
 
-
+## 3. 파라메터 그룹 상세 설정
 cluster parameter group 의 관련 파라메터를 변경합니다.
 1. Parameter group 선택
 2. `test-mysql-5-7` 를 클릭
@@ -104,7 +106,7 @@ Edit Parameters 를 클릭한 후 아래 파라메터를 변경합니다.
 ![alt text](img/iShot_2023-02-04_21.34.15.png)
 
 
-## 2. Slow Query 발생 시 Slack 알림
+## 4. Slow Query 발생 시 Slack 알림
 Lambda 생성 합니다.
 - Create Lambda
 ![alt text](img/iShot_2023-02-04_21.40.13.png)
