@@ -43,7 +43,11 @@ Configuration 탭에서 Slow query 가 활성화 되었는지 확인합니다.
 ## 2. 파라메터 그룹 확인
 파라메터 그룹을 통해 Slow Query 상세 설정을 합니다.
 1. DB Cluster parameter group을 확인합니다. 캡처 처럼 default.% (default.aurora-mysql5.7) 로 되어 있을 경우 별도의 파라페터 그룹을 생성하여 교체해주어야 합니다.
-별도의 파라메터 그룹으로 이미 매핑이 되어 있다면 `3. 파라메터 그룹 상세 설정` 으로 이동합니다.
+
+```diff
++ 별도의 파라메터 그룹으로 이미 매핑이 되어 있다면 3. 파라메터 그룹 상세 설정 으로 이동합니다.
+```
+
 ![alt text](img/iShot_2023-02-04_20.50.11.png)
 
 default.% 사용하고 있으므로 새로운 parameter group을 생성합니다.
