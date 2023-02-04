@@ -86,9 +86,9 @@ Aurora의 parameter group을 방금 생성한 group으로 변경합니다.
 ![alt text](img/iShot_2023-02-04_21.19.21.png)
 
 ## 3. 파라메터 그룹 상세 설정
-cluster parameter group 의 관련 파라메터를 변경합니다.
+cluster parameter group 의 파라메터를 변경합니다.
 1. Parameter group 선택
-2. `test-mysql-5-7` 를 클릭
+2. `test-mysql-5-7` 를 클릭 ( 데이터베이스 클러스터에 연결되어 있는 클러스터 파라메터 선택)
 ![alt text](img/iShot_2023-02-04_21.22.39.png)
 
 Edit Parameters 를 클릭한 후 아래 파라메터를 변경합니다.
