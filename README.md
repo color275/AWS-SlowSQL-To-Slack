@@ -8,7 +8,7 @@ RDS/Aurora의 Slow Query 을 탐지하여 slack 을 통해 알림을 받는다.
 
 # 3. Aurora
 
-## 1. Slow Query Enable
+## 1. RDS Slow Query Enable
 Aurora의 Slow Query 를 활성화 합니다.
 1. Aurora 의 cluster 를 클릭
 2. Modify 선택 
@@ -69,7 +69,7 @@ Aurora의 parameter group을 방금 생성한 group으로 변경합니다.
 
 
 1. Cluster parameter group을 변경 했으므로 각 인스턴스에 적용이 됩니다. 인스턴스 클릭
-2. 변경 중임으로 확인합니다. Applying -> In sync
+2. 변경 중임을 확인합니다. Applying -> In sync
 ![alt text](img/iShot_2023-02-04_21.15.12.png)
 ![alt text](img/iShot_2023-02-04_21.19.21.png)
 
@@ -92,8 +92,47 @@ Edit Parameters 를 클릭한 후 아래 파라메터를 변경합니다.
 3초 이상 SQL 을 실행하여 Slow Query 로깅이 되는지 확인합니다.
 - 3초 이상 SQL 실행
 ![alt text](img/iShot_2023-02-04_21.30.57.png)
-- LOG 확인
+- LOG 찾으러...
 ![alt text](img/iShot_2023-02-04_21.32.54.png)
 - 3초 이상 실행된 SQL 이력 확인
 ![alt text](img/iShot_2023-02-04_21.34.15.png)
 
+
+## 2. Slow Query 발생 시 Slack 알림
+Lambda 생성 합니다.
+- Create Lambda
+![alt text](img/iShot_2023-02-04_21.40.13.png)
+
+1. Author from scratch 선택
+2. Lambda 명 입력 ( SlowQueryToSlack )
+3. python3.8 선택
+![alt text](img/iShot_2023-02-04_21.41.45.png)
+
+- lambda.py 에 있는 코드를 복사/붙여넣기
+![alt text](img/iShot_2023-02-04_21.44.32.png)
+
+- slack HOOK URL 값을 넣어주기 위해 변수를 등록 ( HOOK_URL : xxxxxx )
+![alt text](img/iShot_2023-02-04_21.46.01.png)
+![alt text](img/iShot_2023-02-04_21.48.13.png)
+
+- Slow Log가 CloudWatch에 저장될 때 trigger 되도록 설정
+![alt text](img/iShot_2023-02-04_21.49.29.png)
+
+
+
+1. cloudwatch 선택
+2. 모니터링하려는 db instance 명으로 필터
+3. 결과중 db instance명/slowquery 선택
+4. Filter name 입력 (slowQuery)
+5. Add 버튼 클릭
+![alt text](img/iShot_2023-02-04_21.51.12.png)
+
+- trigger가 등록된 것을 확인합니다.
+![alt text](img/iShot_2023-02-04_21.53.27.png)
+
+다시 3초 이상 SQL을 실행 시켜 slack 으로 알람이 오는 것을 확인
+
+- SQL 실행
+![alt text](img/iShot_2023-02-04_21.54.30.png)
+- Slack을 통해 3초 이상 SQL의 상세 정보 수신 확인
+![alt text](img/iShot_2023-02-04_21.55.01.png)
