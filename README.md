@@ -1,12 +1,18 @@
 # 1. 목적
 RDS/Aurora의 Slow Query 을 탐지하여 slack 을 통해 알림을 받는다.
 
-# 2. 주의 사항
+# 2. Architecture
+- Aurora 에서 Slow Query Log 가 CloudWatch 로 로깅 된다.
+- CloudWatch의 로깅 Trigger에 의해 Lambda 가 수행 된다.
+- Lambda 가 로그를 파싱하여 Slack 에 전달된다.
+![alt text](img/iShot_2023-02-04_22.10.30.png)
+
+# 3. 주의 사항
 일반적으로 RDS/Aurora에서 Slow Query 를 Enable 하는 과정에서 downtime이나 지연은 발생하지 않으나 운영 환경의 경우에는 영향도가 적은 배포 시간이나 traffic이 적은 시간에 진행하시길 바랍니다
 
 <br><br>
 
-# 3. Aurora
+# 4. Aurora 설정
 
 ## 1. RDS Slow Query Enable
 Aurora의 Slow Query 를 활성화 합니다.
