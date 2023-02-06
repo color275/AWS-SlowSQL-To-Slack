@@ -120,7 +120,7 @@ Lambda 생성 합니다.
 3. python3.8 선택
 ![alt text](img/iShot_2023-02-04_21.41.45.png)
 
-- lambda.py 에 있는 코드를 복사/붙여넣기
+- lambda.py (상단 소스에서 확인 가능) 에 있는 코드를 복사/붙여넣기
 ![alt text](img/iShot_2023-02-04_21.44.32.png)
 
 - slack HOOK URL 값을 넣어주기 위해 변수를 등록 ( HOOK_URL : xxxxxx )
