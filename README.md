@@ -123,7 +123,7 @@ Lambda 생성 합니다.
 - lambda.py (상단 소스에서 확인 가능) 에 있는 코드를 복사/붙여넣기
 ![alt text](img/iShot_2023-02-04_21.44.32.png)
 
-- slack HOOK URL 값을 넣어주기 위해 변수를 등록 ( HOOK_URL : xxxxxx )
+- slack HOOK URL(기존에 사용하고 있는 Slack에서 확인) 값을 넣어주기 위해 변수를 등록 ( HOOK_URL : xxxxxx )
 ![alt text](img/iShot_2023-02-04_21.46.01.png)
 ![alt text](img/iShot_2023-02-04_21.48.13.png)
 
